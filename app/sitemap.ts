@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://nammarust.github.io"; // Update to your actual URL
+  const baseUrl = "https://nammarust-community.netlify.app/";
 
   return [
     {

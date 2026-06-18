@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
 });
 
-const siteUrl = "https://nammarust.github.io"; 
+const siteUrl = "https://nammarust-community.netlify.app/"; 
 
 export const metadata: Metadata = {
   title: "NammaRust | The Premier Rust Programming Community in India",
