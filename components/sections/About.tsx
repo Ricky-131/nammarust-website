@@ -150,13 +150,13 @@ const About = () => {
           >
             <TypewriterTag text={aboutContent.tag} />
 
-            <h2 className="font-poppins font-black text-4xl md:text-5xl text-white-primary mb-6">
+            <h2 className="font-poppins font-black text-4xl md:text-5xl text-white-primary text-justify mb-6">
               {aboutContent.headline.split(aboutContent.accentWord)[0]}
               <span className="text-gradient">{aboutContent.accentWord}</span>
               {aboutContent.headline.split(aboutContent.accentWord)[1]}
             </h2>
 
-            <p className="font-inter text-white-primary/60 text-lg leading-relaxed mb-6">
+            <p className="font-inter text-white-primary/60 text-lg text-justify leading-relaxed mb-6">
               {aboutContent.description}
             </p>
           </div>
@@ -170,7 +170,7 @@ const About = () => {
             }}
           >
             <TypewriterTag text={aboutContent.possibilityTag} />
-            <h3 className="font-poppins font-black text-4xl md:text-5xl text-white-primary mb-6">
+            <h3 className="font-poppins font-black text-4xl text-justify md:text-5xl text-white-primary mb-6">
               {
                 aboutContent.possibilityHeadline.split(
                   aboutContent.possibilityAccent,
@@ -185,7 +185,7 @@ const About = () => {
                 )[1]
               }
             </h3>
-            <p className="font-inter text-white-primary/60 text-lg leading-relaxed">
+            <p className="font-inter text-white-primary/60 text-lg text-justify leading-relaxed">
               {aboutContent.possibilityContent}
             </p>
           </div>

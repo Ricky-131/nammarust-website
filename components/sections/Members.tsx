@@ -54,7 +54,7 @@ const Members = () => {
           "{membersContent.quote}"
         </p>
 
-        <p className="font-inter text-white-primary/60 text-base leading-relaxed max-w-3xl mb-16">
+        <p className="font-inter text-white-primary/60 text-base text-justify leading-relaxed max-w-* mb-16">
           {membersContent.intro}
         </p>
 
@@ -94,7 +94,7 @@ const TeamGroup = ({
       <h3 className="font-poppins font-bold text-2xl md:text-3xl text-white-primary mb-3">
         {team.name}
       </h3>
-      <p className="font-inter text-white-primary/50 text-sm leading-relaxed max-w-2xl mb-10">
+      <p className="font-inter text-white-primary/50 text-sm text-justify leading-relaxed max-w-* mb-10">
         {team.description}
       </p>
 

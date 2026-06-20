@@ -203,7 +203,7 @@ const Contact = () => {
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
             className="flex flex-col gap-6"
           >
-            <p className="font-inter text-white-primary/60 text-lg leading-relaxed">
+            <p className="font-inter text-white-primary/60 text-lg text-justify leading-relaxed">
               {contactContent.description}
             </p>
 

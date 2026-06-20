@@ -51,7 +51,7 @@ const Block = ({
       />
 
       {/* Description */}
-      <p className="font-inter text-white-primary/60 text-base leading-relaxed">
+      <p className="font-inter text-white-primary/60 text-base text-justify leading-relaxed">
         {data.description}
       </p>
 
@@ -71,7 +71,7 @@ const Block = ({
             >
               {"\u2192"}
             </span>
-            <p className="font-inter text-white-primary/70 text-sm leading-relaxed">
+            <p className="font-inter text-white-primary/70 text-sm text-justify leading-relaxed">
               {point}
             </p>
           </motion.div>
