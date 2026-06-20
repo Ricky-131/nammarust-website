@@ -54,7 +54,7 @@ const Members = () => {
           "{membersContent.quote}"
         </p>
 
-        <p className="font-inter text-white-primary/60 text-base text-justify leading-relaxed max-w-* mb-16">
+        <p className="font-inter text-white-primary/60 text-base text-justify leading-relaxed max-w-full mb-16">
           {membersContent.intro}
         </p>
 

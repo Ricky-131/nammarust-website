@@ -191,8 +191,8 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Mascot — visible at every breakpoint now. Shown first (above the
-            text) on mobile/tablet via `order-first`, reset to natural DOM
+        {/* Mascot — visible at every breakpoint now. Shown second (below the
+            text) on mobile/tablet, reset to natural DOM
             order (after the text, same as before) at lg+. flex-none keeps it
             from stretching vertically while the parent is column-stacked. */}
         <div className="flex flex-none lg:flex-1 w-full lg:w-auto items-center justify-center lg:justify-end">
