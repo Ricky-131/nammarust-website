@@ -140,7 +140,7 @@ const Hero = () => {
 
       {/* Main Layout Container */}
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-        
+
         {/* Main content (Left side) */}
         <div
           className="flex-1 flex flex-col justify-center max-w-2xl xl:max-w-3xl"
@@ -191,15 +191,18 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Mascot (Right side) - Adjusted max widths for laptop screens */}
-        <div className="hidden lg:flex flex-1 items-center justify-end">
+        {/* Mascot — visible at every breakpoint now. Shown first (above the
+            text) on mobile/tablet via `order-first`, reset to natural DOM
+            order (after the text, same as before) at lg+. flex-none keeps it
+            from stretching vertically while the parent is column-stacked. */}
+        <div className="flex flex-none lg:flex-1 w-full lg:w-auto items-center justify-center lg:justify-end">
           <Image
             src={mascot}
             alt="NammaRust Mascot"
             width={800}
             height={800}
             priority
-            className="w-full h-auto max-w-[400px] xl:max-w-[600px] object-contain"
+            className="w-full h-auto max-w-[200px] sm:max-w-[260px] md:max-w-[320px] lg:max-w-[400px] xl:max-w-[600px] object-contain"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateY(0)" : "translateY(30px)",
