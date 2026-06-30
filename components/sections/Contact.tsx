@@ -41,9 +41,15 @@ const Contact = () => {
 
     setStatus("sending");
 
-    // 1. Open Gmail compose in browser with pre-filled message
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=nammarust@gmail.com&su=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(formData.message)}`;
-    window.open(gmailUrl, "_blank");
+    // 1. Open email — mobile opens Gmail app, desktop opens Gmail web
+    const isMobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent);
+    if (isMobile) {
+      const mailto = `mailto:nammarust@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(formData.message)}`;
+      window.location.href = mailto;
+    } else {
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=nammarust@gmail.com&su=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(formData.message)}`;
+      window.open(gmailUrl, "_blank");
+    }
 
     // 2. Send to Discord (best-effort)
     try {
