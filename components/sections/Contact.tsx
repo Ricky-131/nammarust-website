@@ -46,7 +46,7 @@ const Contact = () => {
     const mailto = `mailto:nammarust@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(mailtoBody)}`;
     window.open(mailto, "_blank");
 
-    // 2. Send to Discord (best-effort, same as before)
+    // 2. Send to Discord (best-effort)
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -57,14 +57,16 @@ const Contact = () => {
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
         console.error("Contact form API error:", data.error);
+        setStatus("error");
+        return;
       }
     } catch (err) {
       console.error("Contact form network error:", err);
+      setStatus("error");
+      return;
     }
 
-    // Show sent state regardless of Discord success
     setStatus("sent");
-    setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
   return (
@@ -188,7 +190,7 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  disabled={status !== "idle"}
+                  disabled={status === "sending" || status === "sent"}
                   className="glow-orange px-8 py-3 bg-orange-primary text-white-primary font-poppins font-semibold text-base rounded-lg transition-all duration-300 hover:scale-105 hover:bg-orange-primary/90 disabled:opacity-70 disabled:hover:scale-100 self-start"
                 >
                   {status === "idle" && "Send Message"}

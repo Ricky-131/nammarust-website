@@ -21,11 +21,6 @@ const contactSchema = z.object({
 });
 
 export async function POST(request: Request) {
-  const ip =
-    request.headers.get("x-forwarded-for") ||
-    request.headers.get("x-real-ip") ||
-    "unknown";
-
   // Validate body
   let body: unknown;
   try {
@@ -51,9 +46,13 @@ export async function POST(request: Request) {
   const discordWebhookUrl = process.env.DISCORD_WEBHOOK_URL;
   if (discordWebhookUrl) {
     try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 5000);
+
       const discordRes = await fetch(discordWebhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        signal: controller.signal,
         body: JSON.stringify({
           embeds: [
             {
@@ -71,12 +70,13 @@ export async function POST(request: Request) {
                       : message,
                 },
               ],
-              footer: { text: `IP: ${ip}` },
+              footer: { text: "NammaRust Contact Form" },
               timestamp: new Date().toISOString(),
             },
           ],
         }),
-);
+      });
+      clearTimeout(timeout);
       console.log("[DEBUG] Discord webhook response:", discordRes.status);
     } catch (discordError) {
       console.error("Discord webhook failed:", discordError);

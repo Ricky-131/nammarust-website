@@ -173,7 +173,6 @@ export default function Events() {
   }, [total]);
 
   // Show up to 3 cards, hide nav when everything fits
-  const cardsToShow = total > 3 ? 3 : total;
   const largeCarousel = total > 3;
 
   const visible = largeCarousel
